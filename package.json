@@ -1,0 +1,16 @@
+{
+  "name": "spa-vanilla",
+  "version": "1.0.0",
+  "description": "single page application using vanilla js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SPA",
+    "VANILLA",
+    "JS"
+  ],
+  "author": "IJONI VICTOR",
+  "license": "ISC"
+}
