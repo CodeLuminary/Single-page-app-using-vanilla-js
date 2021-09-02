@@ -1,8 +1,8 @@
 import ParentView from "./ParentView.js";
 
 export default class extends ParentView {
-    constructor(params) {
-        super(params);
+    constructor(argument) {
+        super(argument);
         this.setTitle("Posts");
     }
 

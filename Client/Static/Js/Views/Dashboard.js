@@ -8,9 +8,9 @@ export default class extends ParentView {
 
     async getHtml() {
         return `
-            <h1>Welcome back, Dom</h1>
+            <h1>Welcome developer</h1>
             <p>
-                Fugiat voluptate et nisi Lorem cillum anim sit do eiusmod occaecat irure do. Reprehenderit anim fugiat sint exercitation consequat. Sit anim laborum sit amet Lorem adipisicing ullamco duis. Anim in do magna ea pariatur et.
+                This is a single page application by Ijoni Victor
             </p>
             <p>
                 <a href="/posts" data-link>View recent posts</a>.
