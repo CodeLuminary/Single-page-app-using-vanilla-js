@@ -13,4 +13,7 @@ export default class extends ParentView {
             <p>You are viewing post #${this.postId}.</p>
         `;
     }
+    async getCss(){
+        return [];
+    }
 }

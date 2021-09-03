@@ -9,7 +9,10 @@ export default class extends ParentView {
     async getHtml() {
         return `
             <h1>Posts</h1>
-            <p>You are viewing the posts!</p>
+            <p>You are viewing the posts on this app.<br> Don't forget to follow me for more codes</p>
         `;
+    }
+    async getCss(){
+        return [`/Static/Css/app.css`];
     }
 }

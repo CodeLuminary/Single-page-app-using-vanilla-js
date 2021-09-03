@@ -33,8 +33,16 @@ body {
     margin: 2em;
     line-height: 1.5;
     font-weight: 500;
+    padding-top: 30px
 }
 
 a {
     color: #dc3031;
 }
+
+.menuDet{position: absolute; right: -13px; top: 30px}
+.menuDet button{outline: none !important;border: 1px solid #dc3031; width: 32px;height: 32px;text-align: center;border-radius: 16px;font-size: larger;background-color: #fff;color: #dc3031;font-weight: bold;cursor: pointer;}
+.menuDet > button:last-child{display: none;}
+.nav_top{color: #dc3031;background-color: #fff;position: relative;}
+.nav_top > div{width: 320px;right:0px;position: absolute;padding: 15px 20px 20px;padding-right: 0px;background-color: #fff;} 
+.nav_top span{display: inline-block;font-size: 18px;}

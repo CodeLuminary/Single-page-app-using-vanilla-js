@@ -12,4 +12,7 @@ export default class extends ParentView {
             <p>Manage your privacy and configuration.</p>
         `;
     }
+    async getCss(){
+        return [];
+    }
 }

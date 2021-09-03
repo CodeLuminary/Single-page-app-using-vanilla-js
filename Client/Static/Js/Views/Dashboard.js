@@ -17,4 +17,7 @@ export default class extends ParentView {
             </p>
         `;
     }
+    async getCss(){
+        return [`/Static/Css/dashboard.css`];
+    }
 }

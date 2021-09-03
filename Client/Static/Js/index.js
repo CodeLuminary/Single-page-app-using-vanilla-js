@@ -3,6 +3,8 @@ import routes from "./Router/index.js"
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
+let assignedCssClass = "ind"
+
 const getParams = match => {
     const values = match.result.slice(1);
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
@@ -39,6 +41,33 @@ const router = async () => {
     const view = new match.route.view(getParams(match));
 
     document.querySelector("#app").innerHTML = await view.getHtml();
+
+    const css = await view.getCss();
+    let clss = match.route.path.split('/')[1];
+    if(clss.localeCompare('')==0){clss = "ind"}
+
+    let head = document.querySelector("head");
+
+    if(assignedCssClass.localeCompare(clss) != 0){ 
+    let previousCss = document.querySelectorAll("head ." + assignedCssClass);
+        for(let i = 0; i < previousCss.length; i++){
+            previousCss[i].parentElement.removeChild(previousCss[i]);
+        }
+    }
+    assignedCssClass = clss
+
+    if(css.length > 0){
+        let relatedCss = document.querySelectorAll("head ." + clss);
+        for(let i = 0; i < relatedCss.length; i++){
+            relatedCss[i].parentElement.removeChild(relatedCss[i]);
+        }
+     
+        for(let i = 0; i < css.length; i++){
+           let link = document.createElement("link");
+            link.setAttribute("rel","stylesheet");link.setAttribute("class", clss);link.setAttribute("type","text/css");link.setAttribute("href",css[i]);
+            head.appendChild(link)
+        }
+    }
 };
 
 window.addEventListener("popstate", router);
