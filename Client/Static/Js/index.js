@@ -14,9 +14,16 @@ const getParams = match => {
     }));
 };
 
-const navigateTo = url => {
-    history.pushState(null, null, url);
-    router();
+const navigateTo = target => {
+    history.pushState(null, null, target.href);
+    router(); 
+    //Add your navigation hightlighter here
+    let navLink = document.querySelectorAll(".nav__link");
+    for(let i = 0; i < navLink.length; i++){
+        navLink[i].classList.remove("highlight");
+    }
+    target.classList.add("highlight");
+    //End of navigation highlighter
 };
 
 const router = async () => {
@@ -76,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
-            navigateTo(e.target.href);
+            navigateTo(e.target);
         }
     });
 
