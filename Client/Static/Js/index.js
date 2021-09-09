@@ -88,4 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     router();
+
+    //Highlight link when page loads
+    let navLink = document.querySelectorAll(".nav__link");
+    for(let i = 0; i < navLink.length; i++){
+        if(navLink[i].getAttribute("href") === location.pathname){
+            navLink[i].classList.add("highlight")
+        }
+    }
 });
