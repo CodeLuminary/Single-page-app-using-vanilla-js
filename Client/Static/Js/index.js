@@ -22,7 +22,12 @@ const navigateTo = target => {
     for(let i = 0; i < navLink.length; i++){
         navLink[i].classList.remove("highlight");
     }
-    target.classList.add("highlight");
+    if(target.matches("[data-link]")){
+        target.classList.add("highlight");
+    }
+    else{
+        target.parentElement.classList.add("highlight");
+    }
     //End of navigation highlighter
 };
 
@@ -48,6 +53,7 @@ const router = async () => {
     const view = new match.route.view(getParams(match));
 
     document.querySelector("#app").innerHTML = await view.getHtml();
+    await view.loadHtmlEvent();
 
     const css = await view.getCss();
     let clss = match.route.path.split('/')[1];
@@ -81,7 +87,7 @@ window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
-        if (e.target.matches("[data-link]")) {
+        if (e.target.matches("[data-link]") || e.target.parentElement.matches("[data-link]")) {
             e.preventDefault();
             navigateTo(e.target);
         }
@@ -96,4 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
             navLink[i].classList.add("highlight")
         }
     }
+
+    //Event listener f
 });

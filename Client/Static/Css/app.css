@@ -1,1 +1,3 @@
 h1{color:#009579;}
+#btn{border: 2px solid #009579;cursor:pointer;background-color:#009579;color:white;padding: 10px 40px;border-radius: 25px;}
+#btn:hover{border: 2px solid #009579; color: #009579;background-color: transparent;}

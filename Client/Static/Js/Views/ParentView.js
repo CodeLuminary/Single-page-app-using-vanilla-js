@@ -10,6 +10,9 @@ export default class {
     async getHtml() {
         return "";
     }
+    async loadHtmlEvent(){
+        return ""
+    }
     async getCss(){
         return [];
     }
