@@ -15,8 +15,7 @@ const getParams = match => {
 };
 
 const navigateTo = target => {
-    history.pushState(null, null, target.href);
-    router(); 
+
     //Add your navigation hightlighter here
     let navLink = document.querySelectorAll(".nav__link");
     for(let i = 0; i < navLink.length; i++){
@@ -24,10 +23,13 @@ const navigateTo = target => {
     }
     if(target.matches("[data-link]")){
         target.classList.add("highlight");
+        history.pushState(null, null, target.href);
     }
     else{
         target.parentElement.classList.add("highlight");
+        history.pushState(null, null, target.parentElement.href);
     }
+    router(); //Calling router function
     //End of navigation highlighter
 };
 
@@ -103,5 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //Event listener f
+    //Event listener for close & open navigation
+    const navLinks = document.querySelectorAll(".nav__link > span:last-child"); //Make sure the query selection follows the structure of your index.html page
+    const clos = document.getElementById("clos");
+    const opn = document.getElementById("opn");
+    const nav = document.querySelector(".nav");
+    const content = document.querySelector(".content");
+    const root = document.querySelector(':root');
+    document.getElementById("clos").addEventListener("click",()=>{
+        for(let k = 0; k < navLinks.length; k++){
+            navLinks[k].style.display = "none";
+        }
+        clos.style.display="none";
+        opn.style.display="inline-block";
+        root.style.setProperty('--nav-width',"50px")
+    })
+    document.getElementById("opn").addEventListener("click",()=>{
+        for(let k = 0; k < navLinks.length; k++){
+            navLinks[k].style.display = "inline";
+        }
+        clos.style.display="inline-block";
+        opn.style.display="none";
+        root.style.setProperty('--nav-width',"200px")
+    })
 });

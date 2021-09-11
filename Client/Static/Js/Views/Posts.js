@@ -15,10 +15,17 @@ export default class extends ParentView {
     }
     async loadHtmlEvent(){
             //Add Event listeners here
-           document.getElementById("btn").addEventListener("click",this.showAlert)       
+           document.getElementById("btn").addEventListener("click",this.showAlert);
+           //or you can use arrow function like this
+           /*
+             document.getElementById("btn").addEventListener("click", () =>{
+                alert("Button click event is working");
+             });
+            */
+
     }
     showAlert(){
-        alert("working")
+        alert("Button click event is working");
     }
     async getCss(){
         return [`/Static/Css/app.css`];

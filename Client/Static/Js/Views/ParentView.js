@@ -11,7 +11,7 @@ export default class {
         return "";
     }
     async loadHtmlEvent(){
-        return ""
+        
     }
     async getCss(){
         return [];
